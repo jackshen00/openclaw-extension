@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "OpenClaw Social Intelligence Worker",
+  "version": "1.0.0",
+  "description": "Chrome Extension Worker for OpenClaw Social Intelligence System",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "https://*.xiaohongshu.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.xiaohongshu.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
