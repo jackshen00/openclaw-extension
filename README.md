@@ -1,17 +1,23 @@
-# OpenClaw 社媒情报助手 (OpenClaw Extension)
+# OpenClaw Extension
 
-这是一个 AI 驱动的社媒监控平台，旨在自动化采集、分析和提醒社交媒体内容（首发支持小红书）。
+本项目文档采用统一文档结构，入口和事实源都在 `docs/` 下。
 
-## 项目概览
-- **后端 (Backend)**: FastAPI + SQLite
-- **采集端 (Worker)**: Chrome 浏览器插件 (Manifest V3)
-- **当前状态**: 已完成 Phase 1 (基础设施搭建)。准备进入 Phase 2 (真实数据解析)。
+当前项目目标已经明确为：
 
-## 每日开发进度总结
-### 2026-03-10
-- 完成了 Phase 1 基础设施开发。
-- 搭建了后端任务调度系统、插件基础架构及环境配置 (`uv`)。
-- 重构了文档结构，所有开发文档已移至 `docs/` 目录并转换为中文。
+- `OpenClaw` 负责控制任务、打开本地 Chrome、查询进度并汇报结果
+- Chrome 插件只在目标页面已经打开时被动采集
+- 后端负责解析、判重、存储和任务状态
+- Dashboard 负责展示监控对象、最新内容和任务运行情况
 
----
-如需了解详细的开发指南和任务看板，请参考 [docs/](./docs) 文件夹。
+默认阅读入口：
+
+1. [docs/01_active_workspace.md](docs/01_active_workspace.md)
+2. [docs/00_project_rules.md](docs/00_project_rules.md)
+3. [docs/architecture.md](docs/architecture.md)
+4. `docs/reference/`
+5. `docs/archive/`
+
+当前代码目录：
+
+- `backend/`: FastAPI + SQLite 后端
+- `worker/`: Chrome Extension Manifest V3 Worker
